@@ -1,13 +1,15 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-<h2 class="text-3xl border-b-2">{{ title }}</h2>
+<h2 class="text-3xl border-b-2 border-green-300">{{ title }}</h2>
 
+<div class="m-6">
 {{ content | safe }}
+</div>
 
 <div class="races">
 {%- for race in races -%}
-  <div class="w-full m-4 p-2 text-center">
+  <div class="w-full my-4 p-2 text-center">
     <p class="font-semibold text-2xl">{{ race.title }}</p>
     <p>{{ race.details | safe }}</p>
     {# <time datetime="{{ page.date }}">{{ page.date | dateDisplay("LLLL d, y") }}</time> #}
