@@ -4,11 +4,7 @@
         "title": "Home"
     },
     {
-        "url": "/about/",
-        "title": "About"
-    },
-    {
-        "url": "https://keywestgroundparrot.com/",
-        "title": "KWGP"
+        "url": "/results/",
+        "title": "Results"
     }
 ]

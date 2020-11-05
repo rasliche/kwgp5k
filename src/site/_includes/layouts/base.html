@@ -9,11 +9,11 @@
     
     <title>{{ title }}</title>
   </head>
-  <body class="m-4 text-gray-700 ">
+  <body class="m-4 text-gray-700 max-w-lg mx-auto bg-blue-100">
     
     {% include 'partials/site-head.html' %}
     
-    <main tabindex="-1" id="main-content">
+    <main tabindex="-1" id="main-content" class="min-h-screen">
       {% block content %}{% endblock %}
     </main>
     
