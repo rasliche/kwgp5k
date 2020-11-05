@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<h2 class="text-3xl border-b-2">{{ title }}</h2>
+
+{{ content | safe }}
+
+<h2 class="text-3xl">Features</h2>
+
+<div class="features sm:flex sm:justify-around">
+{%- for feature in features -%}
+  <div class="sm:w-1/3 m-4 p-2">
+    <p class="font-semibold">{{ feature.title }}</p>
+    <p>{{ feature.details }}</p>
+    {# <time datetime="{{ page.date }}">{{ page.date | dateDisplay("LLLL d, y") }}</time> #}
+  </div>
+{%- endfor -%}
+</div>
+
+<p>Also includes support for Netlify Functions, because they are awesome for getting work done.</p>
+<ul>
+  <li><a href="/api/hello">/api/hello</a></li>
+</ul>
+
+{% endblock %}
