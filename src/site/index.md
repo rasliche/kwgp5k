@@ -10,6 +10,6 @@ title: Key West Ground Parrot 5k/10k
     <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
     </p>
     <p class="text-sm my-3">sign up coming soon, drop your email below to get notified</p>
-    <input type="email" name="email" placeholder="your email" class="p-2 rounded" required>
+    <input type="email" name="email" placeholder="your email" class="p-2 rounded" auto-complete="email" required>
     <button type="submit" class="p-2 bg-green-200 hover:bg-green-300 rounded">let me know</button>
 </form>
