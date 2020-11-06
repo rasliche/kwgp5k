@@ -5,7 +5,7 @@ title: Key West Ground Parrot 5k/10k
 
 <img class="rounded-lg overflow-hidden" src="https://res.cloudinary.com/duzmgsio4/image/upload/v1604602821/keywestgroundparrot.com/5k-race-full.png">
 
-<form action="/home" class="p-4 m-6 text-center mx-auto border-2 border-dashed border-red-500" method="post" name="email-list" netlify netlify-honeypot="bot-field">
+<form action="/" class="p-4 m-6 text-center mx-auto border-2 border-dashed border-red-500" method="post" name="email-list" netlify netlify-honeypot="bot-field">
     <p class="hidden">
     <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
     </p>
