@@ -15,7 +15,7 @@
       <span class="text-4xl text-green-800 font-semibold w-1/4">${{ race.price/100 }}</span>
       <p class="w-3/4">{{ race.details | safe }}</p>
     </span>
-    {# <time datetime="{{ page.date }}">{{ page.date | dateDisplay("LLLL d, y") }}</time> #}
+    <button id="race-{{ race.price }}" class="race rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button>
   </div>
 {%- endfor -%}
 </div>
@@ -27,5 +27,36 @@
   <li><a href="/api/racer-signup">/api/racer-signup</a></li>
   <li><a href="/api/submit-race-time">/api/submit-race-time</a></li>
 </ul> #}
+
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+  console.log('Run like a bird')
+  {# const stripe = Stripe('{{ environment.stripePublishableKey }}') #}
+  
+  const buttons = document.querySelectorAll('.race')
+  
+  const clickHandler = buttons.forEach(b => {
+    b.addEventListener('click', async event => {
+      event.preventDefault()
+      console.log(event.target.id)
+
+      const order = {
+        sku: event.target.id
+      }
+      
+      const response = await fetch('/api/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order)
+      })
+      .then(response => {
+        console.log(response)
+        return response.json()
+      })
+    })
+  })
+</script>
 
 {% endblock %}
