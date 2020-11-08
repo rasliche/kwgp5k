@@ -1,7 +1,7 @@
 {
-  "name": "static-site-template",
+  "name": "kwgp5k",
   "version": "0.0.1",
-  "description": "Static site template repository.",
+  "description": "Homepage for the Key West Ground Parrot Virtual 5k.",
   "main": "index.js",
   "scripts": {
     "style": "npx tailwind build src/site/styles.css -o src/site/_includes/css/main.css"
