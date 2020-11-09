@@ -15,7 +15,7 @@
       <span class="text-4xl text-green-800 font-semibold w-1/4">${{ race.price/100 }}</span>
       <p class="w-3/4">{{ race.details | safe }}</p>
     </span>
-    <button id="race-{{ race.price }}" class="race rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button>
+    <button id="race-{{ race.price }}" class="race-button rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button>
   </div>
 {%- endfor -%}
 </div>
@@ -33,7 +33,7 @@
   console.log('Run like a bird')
   const stripe = Stripe('{{ environment.stripePublishableKey() }}')
   
-  const buttons = document.querySelectorAll('.race')
+  const buttons = document.querySelectorAll('.race-button')
   
   const clickHandler = buttons.forEach(b => {
     b.addEventListener('click', async event => {
