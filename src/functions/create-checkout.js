@@ -1,7 +1,15 @@
 // This function provides a checkout screen for a racer using Stripe given their
 // chosen race option.
 // If successfully signed up, submit formdata to a signup form
-const { stripeApiSecret } = require('../site/_data/environment')
+const stripeApiSecret = () => {
+    if (process.env.CONTEXT === 'production') {
+        return process.env.STRIPE_PROD_API_SECRET
+    } else {
+        console.log('running in dev')
+        return process.env.STRIPE_TEST_API_SECRET
+    }
+}
+
 const stripe = require('stripe')(stripeApiSecret());
 
 const products = require('../site/_data/races.json')
