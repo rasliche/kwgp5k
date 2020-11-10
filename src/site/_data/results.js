@@ -1,14 +1,15 @@
-const NetlifyAPI = require('netlify')
+const { netlifyPersonalAccessToken, kwgp5kSiteId } = require('./environment')
 
-const client = new NetlifyAPI(process.env.NETLIFY_PERSONAL_ACCESS_TOKEN)
+const NetlifyAPI = require('netlify')
+const client = new NetlifyAPI(netlifyPersonalAccessToken())
 
 module.exports = async function() {
     const results = await client.listSiteSubmissions({
         form_id: 'email-list',
-        site_id: 'feb9ae4f-8a80-4d82-bc31-6ab0f0f06c56',
+        site_id: kwgp5kSiteId(),
     })
     // return results.json()
-    const racerEmails = results.map(r => r.email)
-    console.log(`Results: ${racerEmails}`)
-    return racerEmails
+    // const racerEmails = results.map(r => r.email)
+    // console.log(`Results: ${racerEmails}`)
+    return results
 }
