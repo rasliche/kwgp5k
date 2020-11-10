@@ -31,6 +31,7 @@ exports.handler = async ({ body }) => {
                 allowed_countries: ['US']
             },
             mode: 'payment',
+            // This is always the production URL
             success_url: `${process.env.URL}/register`,
             cancel_url: `${process.env.URL}`,
         })
