@@ -1,17 +1,15 @@
 // This function provides a checkout screen for a racer using Stripe given their
 // chosen race option.
 // If successfully signed up, submit formdata to a signup form
-const stripe = require('stripe')(process.env.STRIPE_API_SECRET);
+const { stripeApiSecret } = require('../site/_data/environment')
+const stripe = require('stripe')(stripeApiSecret());
 
 const products = require('../site/_data/races.json')
 
 exports.handler = async ({ body }) => {
     try {
         const { sku } = JSON.parse(body)
-        const priceFromSKU = sku.split('-')[1]
-        const product = products.find(p => {
-            priceFromSKU === p.price
-        })
+        const product = products.find(p => p.sku === sku)
         console.log(product)
         
         const session = await stripe.checkout.sessions.create({
@@ -33,13 +31,14 @@ exports.handler = async ({ body }) => {
                 allowed_countries: ['US']
             },
             mode: 'payment',
-            success_url: 'https://5k.keywestgroundparrot.com/',
-            cancel_url: 'https://5k.keywestgroundparrot.com/',
+            // This is always the production URL
+            success_url: `${process.env.URL}/register`,
+            cancel_url: `${process.env.URL}`,
         })
 
         return {
             statusCode: 200,
-            body: JSON.stringify(session.id)
+            body: JSON.stringify(session.id),
         }
     } catch (error) {
         console.log(error)

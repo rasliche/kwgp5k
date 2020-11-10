@@ -1,7 +1,6 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-<h2 class="text-3xl text-center border-b-2 border-green-300">{{ title }}</h2>
 
 <div class="m-6">
   {{ content | safe }}
@@ -9,31 +8,24 @@
 
 <div class="races">
 {%- for race in races -%}
-  <div class="w-full my-4 p-2 text-center bg-yellow-100 rounded-tr-3xl rounded-bl-3xl">
+  <div class="w-full my-4 p-2 text-center bg-yellow-100 rounded-tr-3xl rounded-bl-3xl border-yellow-600 border-b border-r">
     <p class="font-semibold text-4xl">{{ race.title }}</p>
     <span class="flex">
       <span class="text-4xl text-green-800 font-semibold w-1/4">${{ race.price/100 }}</span>
       <p class="w-3/4">{{ race.details | safe }}</p>
     </span>
-    {# <button id="race-{{ race.price }}" class="race rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button> #}
+    <button id="race-{{ race.price }}" data-sku="{{ race.sku }}" class="race-button rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button>
   </div>
 {%- endfor -%}
 </div>
 
-{# <p>Also includes support for Netlify Functions, because they are awesome for getting work done.</p>
-<ul>
-  <li><a href="/api/hello">/api/hello</a></li>
-  <li><a href="/api/checkout">/api/checkout</a></li>
-  <li><a href="/api/racer-signup">/api/racer-signup</a></li>
-  <li><a href="/api/submit-race-time">/api/submit-race-time</a></li>
-</ul> #}
-
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
   console.log('Run like a bird')
-  {# const stripe = Stripe('{{ environment.stripePublishableKey }}') #}
+
+  const stripe = Stripe('{{ environment.stripePublishableKey() }}')
   
-  const buttons = document.querySelectorAll('.race')
+  const buttons = document.querySelectorAll('.race-button')
   
   const clickHandler = buttons.forEach(b => {
     b.addEventListener('click', async event => {
@@ -41,7 +33,7 @@
       console.log(event.target.id)
 
       const order = {
-        sku: event.target.id
+        sku: event.target.dataset.sku
       }
       
       const response = await fetch('/api/create-checkout', {
@@ -52,9 +44,16 @@
         body: JSON.stringify(order)
       })
       .then(response => {
-        console.log(response)
         return response.json()
       })
+
+      try {
+        const result = await stripe.redirectToCheckout({
+          sessionId: response
+        })
+      } catch (e) {
+        console.log(e)
+      }
     })
   })
 </script>
