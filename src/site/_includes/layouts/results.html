@@ -5,6 +5,12 @@
 
 <div class="m-6">
 {{ content | safe }}
+
+  <div class="w-full">
+    {%- for racer in results -%}
+      <p>{{ racer }}</p>
+    {%- endfor -%}
+  </div>
 </div>
 {#
 <div class="races sm:flex sm:justify-around">
