@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<h2 class="text-3xl text-center border-b-2 border-green-300">{{ title }}</h2>
+
+<div class="m-6">
+  {{ content | safe }}
+</div>
+
+{% endblock %}
