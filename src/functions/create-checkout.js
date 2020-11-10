@@ -4,14 +4,6 @@
 const { stripeApiSecret } = require('../site/_data/environment')
 const stripe = require('stripe')(stripeApiSecret());
 
-const successRedirectURL = () => {
-    if (process.env.CONTEXT === 'production') {
-        return process.env.URL
-    } else {
-        return process.env.DEPLOY_URL
-    }
-}
-
 const products = require('../site/_data/races.json')
 
 exports.handler = async ({ body }) => {
@@ -40,7 +32,7 @@ exports.handler = async ({ body }) => {
             },
             mode: 'payment',
             // This is always the production URL
-            success_url: `${successRedirectURL()}/register`,
+            success_url: `${process.env.URL}/register`,
             cancel_url: `${process.env.URL}`,
         })
 
