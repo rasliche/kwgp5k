@@ -3,6 +3,7 @@ module.exports = {
         if (process.env.CONTEXT === 'production') {
             return process.env.STRIPE_PROD_PUBLISHABLE_KEY
         } else {
+            console.log('running in dev')
             return process.env.STRIPE_TEST_PUBLISHABLE_KEY
         }
     },
@@ -10,6 +11,7 @@ module.exports = {
         if (process.env.CONTEXT === 'production') {
             return process.env.STRIPE_PROD_API_SECRET
         } else {
+            console.log('running in dev')
             return process.env.STRIPE_TEST_API_SECRET
         }
     },

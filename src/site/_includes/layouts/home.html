@@ -30,7 +30,6 @@
   const clickHandler = buttons.forEach(b => {
     b.addEventListener('click', async event => {
       event.preventDefault()
-      console.log(event.target.id)
 
       const order = {
         sku: event.target.dataset.sku
