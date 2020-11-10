@@ -16,5 +16,9 @@ module.exports = {
     netlifyPersonalAccessToken: () => {
         // Netlify User dashboard as kwgp5k_race_results
         return process.env.NETLIFY_PERSONAL_ACCESS_TOKEN
+    },
+    kwgp5kSiteId: () => {
+        // siteId for API access
+        return process.env.KWGP5K_SITE_ID
     }
 }
