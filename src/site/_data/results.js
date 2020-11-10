@@ -2,8 +2,6 @@ const NetlifyAPI = require('netlify')
 
 const client = new NetlifyAPI(process.env.NETLIFY_PERSONAL_ACCESS_TOKEN)
 
-// IR8imZPne2wummThMa3dZ94QpsE81x1zhl_66_GjkJw
-
 module.exports = async function() {
     const results = await client.listSiteSubmissions({
         form_id: 'email-list',
