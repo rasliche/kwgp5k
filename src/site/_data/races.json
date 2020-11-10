@@ -1,11 +1,13 @@
 [
     {
         "title": "🏅 Swag Pack Race 🏅",
+        "sku": "race",
         "price": "1000",
         "details": "I want to run, get some awesome swag with custom artwork by <a href='https://www.instagram.com/erinwattsart/'>@erinwattsart</a>, and have half of my entry go to support the Monroe County Sheriff's Office Animal Farm."
     },
     {
         "title": "🐢 Farm Donation Race 🐴",
+        "sku": "donate",
         "price": "500",
         "details": "I want to race and have all of my entry support the MCSO Animal Farm, don't bother sending me the swag."
     }
