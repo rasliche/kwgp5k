@@ -31,7 +31,7 @@ exports.handler = async ({ body }) => {
                 allowed_countries: ['US']
             },
             mode: 'payment',
-            success_url: `${process.env.URL}/signup`,
+            success_url: `${process.env.URL}/register`,
             cancel_url: `${process.env.URL}`,
         })
 
