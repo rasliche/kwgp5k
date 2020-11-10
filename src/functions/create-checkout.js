@@ -10,7 +10,7 @@ const stripeApiSecret = () => {
     }
 }
 
-const stripe = require('stripe')(stripeApiSecret());
+const stripe = require('stripe')(process.env.STRIPE_PROD_API_SECRET);
 
 const products = require('../site/_data/races.json')
 
