@@ -2,10 +2,7 @@
 layout: "layouts/home.html"
 title: Key West Ground Parrot 5k/10k
 ---
-
-<img class="rounded-lg overflow-hidden" src="https://res.cloudinary.com/duzmgsio4/image/upload/v1604602821/keywestgroundparrot.com/5k-race-full.png">
-
-The Key West Ground Parrot 5k/10k is a virtual race for the Thanksgiving season. Start training now, and sign up for a race below. $5 from every registration goes to support the Monroe County Sheriff's Animal Farm, and you can choose to run as a donor only or get some awesome swag in the mail.
+The Key West Ground Parrot 5k/10k is a honor-system virtual race for the Thanksgiving season. Start training now, and choose an option below when you're ready. $5 from every registration goes to support the Monroe County Sheriff's Animal Farm. You can choose to run as a donor only, or get some awesome swag in the mail.
 
 <!-- <form action="/" class="p-4 m-6 text-center mx-auto border-2 border-dashed border-red-500" method="post" name="email-list" netlify netlify-honeypot="bot-field">
     <p class="hidden">

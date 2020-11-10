@@ -5,7 +5,7 @@ const client = new NetlifyAPI(netlifyPersonalAccessToken())
 
 module.exports = async function() {
     const results = await client.listSiteSubmissions({
-        form_id: 'email-list',
+        form_id: 'results',
         site_id: kwgp5kSiteId(),
     })
     // return results.json()

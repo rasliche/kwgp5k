@@ -1,7 +1,6 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-<h2 class="text-3xl text-center border-b-2 border-green-300">{{ title }}</h2>
 
 <div class="m-6">
   {{ content | safe }}
@@ -9,7 +8,7 @@
 
 <div class="races">
 {%- for race in races -%}
-  <div class="w-full my-4 p-2 text-center bg-yellow-100 rounded-tr-3xl rounded-bl-3xl">
+  <div class="w-full my-4 p-2 text-center bg-yellow-100 rounded-tr-3xl rounded-bl-3xl border-yellow-600 border-b border-r">
     <p class="font-semibold text-4xl">{{ race.title }}</p>
     <span class="flex">
       <span class="text-4xl text-green-800 font-semibold w-1/4">${{ race.price/100 }}</span>
