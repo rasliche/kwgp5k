@@ -5,18 +5,29 @@ const client = new NetlifyAPI(netlifyPersonalAccessToken())
 
 module.exports = async function() {
     // const results = await client.listSiteForms({
-    const response = await client.listFormSubmissions({
+    const resultsFormResponse = await client.listFormSubmissions({
         form_id: '5faaf705b3d68600072ab8dc',
         site_id: kwgp5kSiteId(),
     })
 
-    const results = response.map(r => {
+    const registerFormResponse = await client.listFormSubmissions({
+        form_id: '5faabd3e58099c00076a057d',
+        site_id: kwgp5kSiteId(),
+    })
+
+    // get list of emails that are in the registered form
+    const registeredEmails = registerFormResponse.reduce(r => r.data.email)
+
+    // filter results that have registered
+    const filteredResultsResponses = resultsFormResponse.filter(r => {
+        return registeredEmails.includes(r.data.email)
+    })
+
+    // get necessary info from filtered results
+    const raceResults = filteredResultsResponses.map(r => {
         const { name, email, distance, time, fuel, location, spirit, ...rest } = r.data
         return { name, email, distance, time, fuel, location, spirit, }
     })
-    // return results.json()
-    // const racerEmails = results.map(r => r.email)
-    // console.log(`Results: ${racerEmails}`)
-    return null
-    // return results
+    
+    return raceResults
 }
