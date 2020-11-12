@@ -14,9 +14,13 @@ module.exports = async function() {
         form_id: '5faabd3e58099c00076a057d',
         site_id: kwgp5kSiteId(),
     })
+    // console.log(registerFormResponse)
 
     // get list of emails that are in the registered form
-    const registeredEmails = registerFormResponse.reduce(r => r.data.email)
+    const registeredEmails = registerFormResponse.map(r => {
+        console.log(r.data.email)
+        return r.data.email
+    })
 
     // filter results that have registered
     const filteredResultsResponses = resultsFormResponse.filter(r => {
