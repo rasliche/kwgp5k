@@ -17,5 +17,6 @@ module.exports = async function() {
     // return results.json()
     // const racerEmails = results.map(r => r.email)
     // console.log(`Results: ${racerEmails}`)
-    return results
+    return null
+    // return results
 }
