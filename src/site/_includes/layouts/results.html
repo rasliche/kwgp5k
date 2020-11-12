@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="m-6">
+<div class="hidden m-6">
   {% if results.length %}
     <div class="w-full">
       {%- for racer in results -%}
@@ -14,7 +14,7 @@
   {% endif %}
 </div>
 
-<form action="/results" class="space-y-4 flex-wrap p-4 m-6 mx-auto border-2 border-dashed border-red-500" method="post" name="results" netlify netlify-honeypot="bot-field">
+<form action="/results" class="hidden space-y-4 flex-wrap p-4 m-6 mx-auto border-2 border-dashed border-red-500" method="post" name="results" netlify netlify-honeypot="bot-field">
     <p class="hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
     </p>
