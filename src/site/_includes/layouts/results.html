@@ -6,7 +6,7 @@
   <div class="space-y-3">
     {{ content | safe }}
   </div>
-  {# <div class="w-full text-center text-5xl">Results</div> #}
+  <div class="w-full text-center text-5xl">Results</div>
   {%- for racer in results -%}
     <div class="w-full h-12 flex space-y-4 border-blue-400">
       <p class="w-1/3 relative text-2xl"><span class="text-4xl align-top">{{ racer.spirit }}</span> {{ racer.name }}<span class="absolute bottom-0 right-0 text-xs text-blue-500">{{ racer.location }}</span></p>
