@@ -18,13 +18,14 @@ module.exports = async function() {
 
     // get list of emails that are in the registered form
     const registeredEmails = registerFormResponse.map(r => {
+
         console.log(r.data.email)
-        return r.data.email
+        return r.data.email.toLowerCase()
     })
 
     // filter results that have registered
     const filteredResultsResponses = resultsFormResponse.filter(r => {
-        return registeredEmails.includes(r.data.email)
+        return registeredEmails.includes(r.data.email.toLowerCase())
     })
 
     // get necessary info from filtered results
