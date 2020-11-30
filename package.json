@@ -15,7 +15,7 @@
     "gitlog": "^4.0.3",
     "netlify": "^4.9.0",
     "node-fetch": "^2.6.1",
-    "stripe": "^8.120.0",
+    "stripe": "^8.126.0",
     "tailwindcss": "^1.9.6"
   }
 }
