@@ -14,12 +14,12 @@
       <span class="text-4xl text-green-800 font-semibold w-1/4">${{ race.price/100 }}</span>
       <p class="w-3/4">{{ race.details | safe }}</p>
     </span>
-    <button id="race-{{ race.price }}" data-sku="{{ race.sku }}" class="race-button rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button>
+    {# <button id="race-{{ race.price }}" data-sku="{{ race.sku }}" class="race-button rounded bg-green-200 hover:bg-green-300 mt-4 p-1">👆 this is me</button> #}
   </div>
 {%- endfor -%}
 </div>
 
-<script src="https://js.stripe.com/v3/"></script>
+{# <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
   console.log('Run like a bird')
 
@@ -54,7 +54,7 @@
         console.log(e)
       }
     })
-  })
-</script>
+  }) #}
+{# </script> #}
 
 {% endblock %}
