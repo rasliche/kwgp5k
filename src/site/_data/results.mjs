@@ -1,6 +1,7 @@
 const { netlifyPersonalAccessToken, kwgp5kSiteId } = require('./environment')
 
-const NetlifyAPI = require('netlify')
+// const NetlifyAPI = require('netlify')
+import NetlifyAPI from 'netlify'
 const client = new NetlifyAPI(netlifyPersonalAccessToken())
 
 module.exports = async function() {
